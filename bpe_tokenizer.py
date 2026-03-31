@@ -1,7 +1,4 @@
-"""
-Tokenizador BPE (Byte Pair Encoding) - Implementação do zero
-Laboratório 6 - P2: Construindo um Tokenizador BPE e Explorando o WordPiece
-"""
+from transformers import AutoTokenizer
 
 # Corpus de treinamento: palavras segmentadas em caracteres com símbolo </w>
 vocab = {
@@ -12,8 +9,8 @@ vocab = {
 }
 
 
+# Retorna a frequência de cada par de símbolos adjacentes no vocabulário
 def get_stats(vocab: dict) -> dict:
-    """Retorna a frequência de cada par de símbolos adjacentes no vocabulário."""
     pairs = {}
     for word, freq in vocab.items():
         symbols = word.split()
@@ -32,8 +29,8 @@ assert stats[('e', 's')] == 9
 print("Validação OK\n")
 
 
+# Funde todas as ocorrências isoladas do par de símbolos no vocabulário
 def merge_vocab(pair: tuple, v_in: dict) -> dict:
-    """Funde todas as ocorrências isoladas do par de símbolos no vocabulário."""
     replacement = ''.join(pair)
     v_out = {}
     for word, freq in v_in.items():
