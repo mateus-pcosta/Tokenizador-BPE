@@ -63,8 +63,6 @@ for i in range(1, 6):
 # Integração com WordPiece via BERT multilíngue
 print("=== WordPiece — BERT Multilíngue ===")
 
-from transformers import AutoTokenizer
-
 tokenizer = AutoTokenizer.from_pretrained("bert-base-multilingual-cased")
 
 frase = "Os hiper-parâmetros do transformer são inconstitucionalmente difíceis de ajustar."
